@@ -36,8 +36,11 @@ const App = () => {
         <Route path="/movies/:id">
           <Movie />
         </Route>
-        <Route path="/">
+        <Route path="/" exact >
           <MovieList movies={movieList}/>
+        </Route>
+        <Route>
+          Hello
         </Route>
       </Switch>
     </div>

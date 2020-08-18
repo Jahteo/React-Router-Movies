@@ -13,18 +13,13 @@ const MovieList = ({ movies }) => {
 
 function MovieDetails({ movie }) {
   const { title, director, metascore } = movie;
-  const { url } = useRouteMatch();
+  const { url, ...route } = useRouteMatch();
 
-  const history = useHistory()
-  const routeToCard = () => {
-    history.push("/movie")
-  }
-
+console.log( url, route)
   return (
     <div className="movie-card">
       <Link
-        to={`${url}/${movie.id}`}
-        onClick={routeToCard}
+        to={`${url === '/' ? '' : url}/movies/${movie.id}`}
       >
         <h2>{title}</h2>
         <div className="movie-director">
