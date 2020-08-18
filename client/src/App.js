@@ -16,7 +16,6 @@ const App = () => {
         .get('http://localhost:5000/api/movies')
         .then(response => {
           setMovieList(response.data);
-          console.log(response.data);
         })
         .catch(error => {
           console.error('Server Error', error);
@@ -29,19 +28,18 @@ const App = () => {
     // This is stretch. Prevent the same movie from being "saved" more than once
   };
 
-  console.log(movieList)
+  // console.log(movieList)
   return (
     <div>
       <SavedList list={[ /* This is stretch */]} />
       <Switch>
-        {/* <Route path="/movies/:id">
+        <Route path="/movies/:id">
           <Movie />
-        </Route> */}
+        </Route>
         <Route path="/">
           <MovieList movies={movieList}/>
         </Route>
       </Switch>
-      <div>Replace this Div with your Routes</div>
     </div>
   );
 };
